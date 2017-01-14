@@ -8,11 +8,11 @@ by Shahryar Saqib
 * 2D Game using Unity UI (very simple prototyping intentioned UI)
 * Game mechanic: a quiz game with multiple choice questions that are stored somewhere on the internet: playfab.
 * Questions have time limit. For example: 5 seconds.
-* During each quiz game the game should adapts the difficulty of the questions dynamically based on player performance and keeps it on the servier(PlayFab) for the next game including app restart. (explaination of how i designed this dynamic difficulty system provided below)
+* During each quiz game the game adapts the difficulty of the questions dynamically based on player performance and keeps it on the server(PlayFab) for the next game including app restart. (explaination of how i designed this dynamic difficulty system provided below)
 * There are questions for at least 3 difficulty levels.
 * Support multiple screen ratios, portrait and landscape orientations(Ui should adapt to most orientaitons, and both landscape and potrait, since no perticular target was provided, it was designed on 4:3 but it will adapt , unless the screen aspect isnt rediculus the game should adapt fine).
 * Win/Lose mechanic: 5 correct answers in a row to win, 3 wrong answers in a row to lose
-* High scores stored in the same system you stored the questions(Being stored in PlayFab, the game automatically downloads the highscore, displays it and updates it on the server if you beat your highscore etc).
+* High scores stored in the same server(Being stored in PlayFab, the game automatically downloads the highscore, displays it and updates it on the server if you beat your highscore etc).
 * I tried to make tests for the game but cudnt conceptualize the need for tests, since the game wasnt coded in test driven approach, i went with event based archetecture.I can however do so using Nunit framework etc.if so asked.
 
 ## Instructions To Test
