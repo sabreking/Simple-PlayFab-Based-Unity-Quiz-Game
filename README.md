@@ -16,12 +16,16 @@ by Shahryar Saqib
 * I tried to make tests for the game but cudnt conceptualize the need for tests, since the game wasnt coded in test driven approach, i went with event based archetecture.I can however do so using Nunit framework etc.if so asked.
 
 ## Instructions To Test
+
 ### Link to your playfab account
 * Link your playfab account instructions provided in the INSTRUCTIONS FOLDER.
+
 ### Upload provided quesiton's JSON 
 * Upload the provided(Inside instructions folder) JSOn title data on your playfab account (These are quesitons that the game will download)
+
 ## Event based infrastructure
 The eventmanager.cs and Globalsettings.cs are the only singletons in the game. everything else is completly decoupled from everything else. Objects fire events in the eventmanagers which others can listen in.The whole game is running on events. I used the unity's event wrapper instead of delegate events to save time and use unity serialiabity of unity events to conveneiently make a notifications/dialog system using inspector wiring for minor things
+
 ## Difficulty Adaptability system
 * The DynamicDifficultyAdapter.cs object when present in the scene fires events to shift difficulty and those are picked up by the quesitonsmanager and it starts giving questions based on the new difficulty.
 * The DynamicDifficultyAdapter (Totally configurable from the inspector) can be configured to consider a number of questions , i.e hostorical performance. i.e how many questions you answered correctly and what was their difficulty.based on that it calculates an Adeptness score, which is then used to shift difficulty.
