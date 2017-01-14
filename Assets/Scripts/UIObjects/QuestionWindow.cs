@@ -33,10 +33,16 @@ public class QuestionWindow : UIWindow
     protected override void SubscribeToEvents()
     {
         EventSys.onNextQuestionForQuestionWindow.AddListener(PopulateAndShowQuestion);
+        EventSys.onGameWon.AddListener(DisableWindow);
+        EventSys.onGameLost.AddListener(DisableWindow);
     }
 
     public override void Open()
     {
+        if (!gameObject.activeInHierarchy)
+        {
+            gameObject.SetActive(true);
+        }
         _animator.SetTrigger("MoveIn");
     }
 
@@ -46,6 +52,10 @@ public class QuestionWindow : UIWindow
         EventSys.onQuestionWindowIdle.Invoke();
     }
 
+    void DisableWindow()
+    {
+        gameObject.SetActive(false);
+    }
     private void PopulateAndShowQuestion(Question question)
     {
 

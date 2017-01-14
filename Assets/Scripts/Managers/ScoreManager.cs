@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using PlayFab;
 using PlayFab.ClientModels;
 using UnityEngine;
-using UnityEngine.Assertions;
 
 public class ScoreManager : BroadcasterAndReceiver
 {
@@ -17,8 +15,6 @@ public class ScoreManager : BroadcasterAndReceiver
     {
         base.Start();
         FireGuiUpdateEvents();
-        Assert.AreEqual(0,_score);
-        Assert.AreEqual(1,_score);
     }
 
     protected override void SubscribeToEvents()
@@ -68,7 +64,7 @@ public class ScoreManager : BroadcasterAndReceiver
 
     private void CorrecttlyAnswered(Question question)
     {
-        _score += CalculateScoreForAnsweringCorrectly(question);
+        _score += (int) question.ScoreValue;
         HighScoreCheck();
         _winningStreak += 1;
         _losingStreak = 0;
@@ -84,31 +80,12 @@ public class ScoreManager : BroadcasterAndReceiver
         FireGuiUpdateEvents();
     }
 
-    void HighScoreCheck()
+    private void HighScoreCheck()
     {
-        if (_score>_highScore)
+        if (_score > _highScore)
         {
             _highScore = _score;
         }
-        
-    }
-    private int CalculateScoreForAnsweringCorrectly(Question question)
-    {
-        var score = GlobalSettings.Instance.scoreAwardForEasyQuestions;
-        switch (question.questionDifficulty)
-        {
-            case QuestionDifficulty.Easy:
-                break;
-            case QuestionDifficulty.Medium:
-                score = score*GlobalSettings.Instance.scoreMultiplierForMediumQuestions;
-                break;
-            case QuestionDifficulty.Hard:
-                score = score*GlobalSettings.Instance.scoreMultiplierForHardQuestions;
-                break;
-            default:
-                throw new ArgumentOutOfRangeException();
-        }
-        return (int) score;
     }
 
     private void FireGuiUpdateEvents()
@@ -117,11 +94,6 @@ public class ScoreManager : BroadcasterAndReceiver
         EventSys.onWinStreak.Invoke(_winningStreak);
         EventSys.onLoseStreak.Invoke(_losingStreak);
         EventSys.onHighScoreUpdate.Invoke(_highScore);
-    }
-
-    public void UpdateHighScore()
-    {
-        
     }
 
     public void WinLoseConditionCheck()
