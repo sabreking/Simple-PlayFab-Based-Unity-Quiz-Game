@@ -1,8 +1,8 @@
 # Simple-PlayFab-Based-Unity-Quiz-Game
 by Shahryar Saqib
-*you can download a running Build from [HERE](https://www.google.com) this uses MY playfab back end, if you open the project in your unity, you might need to enter your own playfab credentials
- *
- *Disclaimer* The game might contain Bugs as it is a *Prototype* produced rapidly and hasnt been throughly tested yet or bugs that might have gone under the radar.
+**you can download a running Build from [HERE](https://www.google.com) this uses MY playfab back end, if you open the project in your unity, you might need to enter your own playfab credentials
+ **
+ **Disclaimer** The game might contain Bugs as it is a **Prototype** produced rapidly and hasnt been throughly tested yet or bugs that might have gone under the radar.
   
 * Downloads questions from the playfab Titledata, Stores player highscore and Adeptness(used to asses what question difficulty to show player) in the userdata on playfab.
 * 2D Game using Unity UI (very simple prototyping intentioned UI)
