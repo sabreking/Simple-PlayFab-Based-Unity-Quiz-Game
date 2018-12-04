@@ -1,4 +1,4 @@
-# Simple-PlayFab-Based-Unity-Quiz-Game
+#Testing repo
 by Shahryar Saqib
 **you can download a running Build from [HERE](https://drive.google.com/file/d/0ByIcHV1vg2B6ZUFwVkdzUXE0dHc/view?usp=sharing) this uses MY playfab back end, if you open the project in your unity, you might need to enter your own playfab credentials
  **
